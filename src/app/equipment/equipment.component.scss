@@ -1,0 +1,32 @@
+@import "shared-vars.scss";
+
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	&-equipment {
+		min-width: 50%;
+	}
+}
+.wrapper > div {
+	padding: 12px;
+	flex: 1;
+}
+
+@media (max-width: 769px) {
+	.wrapper {
+		display: block;
+	}
+}
+
+.Heavy {
+	color: $primary-color;
+}
+
+.Regular {
+	color: $secondary-color;
+}
+
+.Specialized {
+	color: $warn-color;
+}

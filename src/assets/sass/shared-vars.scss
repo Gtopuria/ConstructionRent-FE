@@ -1,0 +1,55 @@
+@import "~@angular/material/theming";
+@import "color-palette";
+@import "roboto";
+
+
+$mat-app-theme: mat-light-theme(
+	mat-palette($primary-palette),
+	mat-palette($accent-palette),
+	mat-palette($warn-palette)
+);
+
+// fonts
+$font-family-base: "Roboto", "Helvetica Neue", "Arial", sans-serif;
+$mat-app-typography: mat-typography-config($font-family-base);
+
+$primary-color: map-get($primary-palette, 500);
+$secondary-color: map-get($accent-palette, 500);
+$warn-color: map-get($warn-palette, 500);
+$tertiary-color: $mine-shaft;
+
+//state colors
+$success-color: $apple;
+$danger-color: $persimmon;
+$warning-color: $paris-daisy;
+$info-color: $dodger-blue;
+
+$text-color: $mine-shaft;
+$link-color: $primary-color;
+$headings-font-weight: 600;
+
+// outer-content
+$outer-content-bg-color: $concrete;
+
+$form-field-label-color-focused: $primary-color;
+$form-field-label-color-unfocused: rgba($white, 0.54);
+$form-field-valid-underline-color: $apple;
+$dialog-container-bg: $white;
+
+@mixin mix-app-theme($mat-app-theme) {
+  $primary: map-get($mat-app-theme, primary);
+  $accent: map-get($mat-app-theme, accent);
+
+  .mat-button-toggle {
+    background-color: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+  }
+
+  .mat-button-toggle-checked {
+    background-color: mat-color($accent);
+    color: mat-color($accent, default-contrast);
+  }
+}
+
+// Include the mixin
+@include mix-app-theme($mat-app-theme);

@@ -8,42 +8,55 @@ import { EffectsModule } from '@ngrx/effects';
 import { equipmentReducer } from './equipment/equipment.reducer';
 import { AppEquipmentState } from './equipment/state';
 import { EquipmentsEffect } from './equipment/equipment.effect';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterState } from './route/state';
+import { routeReducer } from './route/route.reducer';
+import { RouteEffect } from './route/route.effect';
+import { DefaultRouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 
 const APP_REDUCER_TOKEN = new InjectionToken<ActionReducerMap<AppState>>(
-  'appReducer'
+	'appReducer'
 );
 
 const EQUIPMENT_REDUCER: ActionReducerMap<AppEquipmentState> = {
-  equipment: equipmentReducer
+	equipment: equipmentReducer
+};
+
+const ROUTING_REDUCER: ActionReducerMap<RouterState> = {
+	route: routeReducer
 };
 
 const APP_REDUCERS = {
-  ...EQUIPMENT_REDUCER
+	...EQUIPMENT_REDUCER,
+	...ROUTING_REDUCER
 };
 
 const APP_EFFECTS = [
-  EquipmentsEffect
+	EquipmentsEffect,
+	RouteEffect
 ];
 
 export function logger(reducer: ActionReducer<AppState>): any {
-  // default, no options
-  return storeLogger()(reducer);
+	// default, no options
+	return storeLogger()(reducer);
 }
 
 export const metaReducers = environment.production ? [] : [logger];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    StoreModule.forRoot(APP_REDUCER_TOKEN, { metaReducers }),
-    EffectsModule.forRoot(APP_EFFECTS)
-  ],
-  providers: [{ provide: APP_REDUCER_TOKEN, useFactory: _appReducerFactory }]
+	declarations: [],
+	imports: [
+		HttpClientModule,
+		CommonModule,
+		StoreModule.forRoot(APP_REDUCER_TOKEN, { metaReducers }),
+		EffectsModule.forRoot(APP_EFFECTS),
+		StoreRouterConnectingModule.forRoot({ serializer: DefaultRouterStateSerializer, stateKey: 'router' }),
+	],
+	providers: [{ provide: APP_REDUCER_TOKEN, useFactory: _appReducerFactory }]
 })
 export class StoreSdkModule { }
 
 export function _appReducerFactory() {
-  return APP_REDUCERS;
+	return APP_REDUCERS;
 }

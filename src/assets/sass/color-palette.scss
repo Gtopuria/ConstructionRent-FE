@@ -1,0 +1,235 @@
+// http://chir.ag/projects/name-that-color
+
+// black and whites
+$white: #fff;
+$black: #000;
+$nero: #222;
+$abbey: #333;
+$dove-gray: #626262;
+$dusty-gray: #979797;
+$jumbo: #74747d;
+$concrete: #f3f3f3;
+$mercury: #e4e4e4;
+$mercury-light: #e1e1e1;
+$silver: #c8c8c8;
+$silver-note: #c5c4c4;
+$silver-chalice: #acacac;
+$gallery: #eee;
+$alto: #d7d7d7;
+$nobel: #b4b4b4;
+$matterhorn: #575757;
+$mine-shaft: #2d2d2d;
+$mine-shaft-2: #2f2f2f;
+$mine-shaft-3: #242424;
+$mine-shaft-4: #272727;
+$tundora: #4a4a4a;
+$tuna: #3a3c3f;
+$gray: #888;
+$cod-gray: #0f0f0f;
+$cod-gray-2: #191919;
+$charade: #24242e;
+$scarpa-flow: #54545d;
+$athens-gray: #e4e4ed;
+$bombay: #b4b4bd;
+$selago: #f4f4fd;
+$outer-space: #242828;
+$heavy-metal: #202120;
+$nevada: #5d6466;
+$ebony-clay-3: #2e3541;
+$shark: #2b2c30;
+$shark-2: #22272f;
+$cape-cod: #484d4e;
+$boulder: #7d7d7d;
+$scorpion: #5c5c5c;
+$regent-gray: #8d969e;
+$wild-sand: #f5f5f5;
+$emperor: #555;
+
+// reds, pinks and purple
+$cream-purple: #59081e;
+$brick-red: #c62d42;
+$hairy-heath: #6b2a11;
+$rouge: #a23d6c;
+$hibiscus: #c23c70;
+$red: #f00;
+$bright-red: #d3000a;
+$persimmon: #ff5858;
+$red-devil: #820208;
+$red-ribbon: #f01818;
+$affair: #6a479b;
+$minsk: #402c80;
+$plum: #86327c;
+$torch-red: #f41717;
+$heliotrope: #f46df5;
+$crows-head: #1e0b08;
+
+// greens
+$apple: #40b840;
+$light-apple: #5ba238;
+$jungle-green: #219974;
+$limeade: #61aa00;
+$green-haze: #00af19;
+$atlantis: #89d227;
+$surfie-green: #149279;
+$citron: #92b328;
+$vida-loca: #4f8717;
+$harlequin: #3ccc00;
+$mantis: #7ec159;
+$green-pea: #275a20;
+$bitter: #878e76;
+$fun-green: #037e21;
+$san-felix: #08571b;
+$jewel: #10842c;
+
+// blues
+$dodger-blue: #327cff;
+$dodger-blue-2: #0c66ff;
+$azure-radiance: #3ca0fa;
+$keppel: #3ba09e;
+$deep-cerulean: #006eb4;
+$bay-of-many: #275881;
+$biscay: #193c64;
+$firefly: #0f2233;
+$science-blue: #0073cf;
+$glacier: #6fa0c1;
+$big-stone: #1b2d3e;
+$oxford-blue: #384a5b;
+$blue-bayoux: #4f6273;
+$bahama-blue: #035f9b;
+$bali-hai: #8597a8;
+$midnight: #012;
+$picton-blue: #2e99f0;
+$eastern-blue: #2886b8;
+$solitude: #e9f4fe;
+$zumthor: #ecf5ff;
+$java: #1fcedd;
+$elm: #1c6866;
+$congress-blue: #004682;
+$havelock-blue: #4a90e2;
+$denim: #0d75b8;
+$bondi-blue: #00a8b2;
+$boston-blue: #338bc3;
+$pickled-bluewood: #2f4152;
+
+// yellows
+$paris-daisy: #fff8a7;
+$yellow: #ff0;
+$turbo: #f9e900;
+$gold-drop: #f07d00;
+$supernova: #ffcb00;
+$my-sin: #ffb630;
+$zest: #de822c;
+$corn: #efbf01;
+$laser: #c9af74;
+$shadow: #8c7a50;
+$lightning-yellow: #ffc328;
+$fuel-yellow: #f2a537;
+$peach-cream: #ffefdd;
+$golden-fizz: #fff43c;
+$saffron: #f2b926;
+
+// oranges
+$blaze-orange: #f60;
+$vesuvius: #b35409;
+$flamingo: #f05a22;
+$orange-peel: #ff9f00;
+$web-orange: #ffa500;
+
+$primary-palette: (
+	50: #efe7fd,
+	100: #d4c3f9,
+	200: #B79BF6,
+	300: #9871F4,
+	400: #7D50F1,
+	500: #5F2CED,
+	600: #5227E7,
+	700: #3D1FDE,
+	800: #2018D8,
+	900: #0003D1,
+    A100 : #ffffff,
+    A200 : #dfdaff,
+    A400 : #b3a7ff,
+    A700 : #9d8eff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$accent-palette: (
+    50 : #fff8e6,
+    100 : #ffedc0,
+    200 : #ffe296,
+    300 : #ffd66c,
+    400 : #ffcd4d,
+    500 : #ffc42d,
+    600 : #ffbe28,
+    700 : #ffb622,
+    800 : #ffaf1c,
+    900 : #ffa211,
+    A100 : #ffffff,
+    A200 : #fffcf8,
+    A400 : #ffe7c5,
+    A700 : #ffdcac,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$warn-palette: (
+	50: #ffe0e0,
+	100: #ffb3b3,
+	200: #ff8080,
+	300: #ff4d4d,
+	400: #ff2626,
+	500: $red,
+	600: $red,
+	700: $red,
+	800: $red,
+	900: $red,
+	A100: $white,
+	A200: #fff2f2,
+	A400: #ffbfbf,
+	A700: #ffa6a6,
+	contrast: (
+		50: $white,
+		100: $white,
+		200: $white,
+		300: $white,
+		400: $white,
+		500: $white,
+		600: $white,
+		700: $white,
+		800: $white,
+		900: $white,
+		A100: $white,
+		A200: $white,
+		A400: $white,
+		A700: $white,
+	),
+);

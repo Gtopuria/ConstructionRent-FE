@@ -1,1 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@import "shared-vars.scss";
+@import "~@angular/cdk/overlay-prebuilt.css";
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+// angular material
+@include mat-core($mat-app-typography);
+@include mat-core-theme($mat-app-theme);
+@include mat-tabs-theme($mat-app-theme);
+@include mat-button-theme($mat-app-theme);
+@include mat-divider-theme($mat-app-theme);
+@include mat-toolbar-theme($mat-app-theme);
+@include mat-badge-theme($mat-app-theme);
+@include mat-progress-spinner-theme($mat-app-theme);
+@include mat-card-theme($mat-app-theme);
+@include mat-dialog-theme($mat-app-theme);
+@include mat-radio-theme($mat-app-theme);
+@include mat-snack-bar-theme($mat-app-theme);
+@include mat-select-theme($mat-app-theme);
+@include mat-checkbox-theme($mat-app-theme);
+@include mat-form-field-theme($mat-app-theme);
+@include mat-menu-theme($mat-app-theme);
+@include mat-list-theme($mat-app-theme);
+@include mat-input-theme($mat-app-theme);
+@include mat-slide-toggle-theme($mat-app-theme);
+@include mat-chips-theme($mat-app-theme);
+@include mat-datepicker-theme($mat-app-theme);
+@include mat-table-theme($mat-app-theme);
+@include mat-sidenav-theme($mat-app-theme);
+@include mat-slider-theme($mat-app-theme);
+@include mat-progress-bar-theme($mat-app-theme);
+
+// This rule solves the blue flashes on tap action on android Chrome.
+// It was copied from the removed ionic stylesheet
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+	// TODO: OSB-6997: Open in new tab functionality - iOS
+	/* stylelint-disable-next-line declaration-no-important */
+	-webkit-touch-callout: default !important;
+	box-sizing: border-box;
+}
+
+*:active,
+*:focus {
+	outline: 0;
+}
+
+html {
+	font-size: 62.5%;
+	height: 100%;
+}
+
+body {
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+	text-size-adjust: 100%;
+	// position: fixed;
+	// height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+
+	.mat-input-element {
+		line-height: 1.3;
+		margin-bottom: -2px;
+	}
+
+	/* overridden styles for browser not supported popup */
+	.buorg {
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+img {
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin-top: 1.6rem;
+	margin-bottom: 1rem;
+	font-weight: $headings-font-weight;
+	line-height: 1.2;
+}
+
+button,
+input,
+select {
+	border: 0;
+	font-family: inherit;
+}

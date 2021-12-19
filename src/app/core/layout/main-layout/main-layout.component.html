@@ -1,0 +1,23 @@
+<div class="main-layout-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Construction Rent</h1>
+    <button mat-raised-button color="accent" (click)="auth.logout({ returnTo: document.location.origin })">
+      Log out
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/equipment">Equipment</a>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

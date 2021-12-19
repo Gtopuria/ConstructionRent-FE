@@ -1,0 +1,29 @@
+@font-face {
+	font-family: "RobotoCondensed";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Roboto Condensed Light"), local("RobotoCondensed-Light"),
+		url("~/assets/fonts/robotocondensed-light.woff2") format("woff2"),
+		url("~/assets/fonts/robotocondensed-light.woff") format("woff"),
+		url("~/assets/fonts/robotocondensed-light.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "RobotoCondensed";
+	font-style: normal;
+	font-weight: 400;
+	src: local("RobotoCondensed Regular"), local("Roboto-Condensed-Regular"),
+		url("~/assets/fonts/robotocondensed-regular.woff") format("woff"),
+		url("~/assets/fonts/robotocondensed-regular.woff2") format("woff2"),
+		url("~/assets/fonts/robotocondensed-regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "RobotoCondensed";
+	font-style: normal;
+	font-weight: 700;
+	src: local("RobotoCondensed Bold"), local("RobotoCondensed-Bold"),
+		url("~/assets/fonts/robotocondensed-bold.woff") format("woff"),
+		url("~/assets/fonts/robotocondensed-bold.woff2") format("woff2"),
+		url("~/assets/fonts/robotocondensed-bold.ttf") format("truetype");
+}
