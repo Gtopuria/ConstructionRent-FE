@@ -7,6 +7,7 @@ import { ActionWithPayload, AppError } from '../utils/store-utils';
 import { of } from 'rxjs';
 import { Equipment } from '../equipment/equipment.model';
 import { OrderService } from './order.service';
+import { OrderItem } from './order.model';
 
 @Injectable()
 export class OrderEffect {
@@ -15,6 +16,22 @@ export class OrderEffect {
 		ofType(ORDER_ACTION_TYPE.AddToCart),
 		map((action: ActionWithPayload<Equipment>) => action.payload),
 		map((payload) => this.orderActions.AddToCartSuccess(payload))
+	));
+
+
+	placeOrder$ = createEffect(() => this.actions$.pipe(
+		ofType(ORDER_ACTION_TYPE.PlaceRentOrder),
+		map((action: ActionWithPayload<OrderItem[]>) => action.payload),
+		switchMap((payload) =>
+			this.service.PlaceRentOrder(payload).pipe(
+				map((response) => {
+					if(response.status === 200) {
+						return this.orderActions.PlaceRentOrderSuccess()
+					}
+				}),
+				catchError((error: AppError) => of(this.orderActions.PlaceRentOrderFail(error)))
+			)
+		)
 	));
 
 	constructor(private actions$: Actions,

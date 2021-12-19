@@ -9,20 +9,24 @@ import { MaterialModule } from './shared/material.module';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { AppBoostrapComponent } from './app-boostrap/app-boostrap.component';
 import { MainLayoutComponent } from './core/layout/main-layout/main-layout.component';
+import { OrderCartComponent } from './order-cart/order-cart.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		EquipmentComponent,
-		MainLayoutComponent,
 		AppBoostrapComponent,
+		OrderCartComponent,
+		MainLayoutComponent,
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		StoreSdkModule,
 		BrowserAnimationsModule,
-		MaterialModule
+		MaterialModule,
+		ReactiveFormsModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

@@ -1,0 +1,37 @@
+mat-card {
+	width: 240px;
+	height:150px;
+	margin:0 auto;
+}
+
+
+
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	&-cart-item-card {
+		width: 100%;
+		&-inner-item {
+			>div {
+				padding:6px;
+			}
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+.wrapper > div {
+	padding: 12px;
+	flex: 1;
+}
+
+@media (max-width: 769px) {
+	.wrapper {
+		display: block;
+	}
+}
+
+.rent-submit {
+	width: 100%;
+}

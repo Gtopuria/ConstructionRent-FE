@@ -37,7 +37,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.mobileQuery.removeListener(this._mobileQueryListener);
+		// this.mobileQuery.removeListener(this._mobileQueryListener);
 		if(this.cartItemCount$$) {
 			this.cartItemCount$$.unsubscribe();
 		}

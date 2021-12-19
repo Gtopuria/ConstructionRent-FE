@@ -1,0 +1,29 @@
+<div *ngIf="cartItems.length === 0; else cart">
+	<mat-card>No Items in the cart</mat-card>
+</div>
+
+<ng-template #cart>
+	<div class="wrapper">
+
+		<div *ngFor="let item of orderFormItems.controls; let i = index">
+			<mat-card class="wrapper-cart-item-card">
+				<div class="wrapper-cart-item-card-inner">
+					<div [formGroup]="item" class="wrapper-cart-item-card-inner-item">
+						<div>
+							<label>Name</label>
+							<input type="text" formControlName="name" class="form-control"
+								[ngClass]="{ 'is-invalid': submitted && item.controls.name.errors }" />
+						</div>
+						<mat-form-field class="duration-in-days" appearance="outline">
+							<mat-label class="duration-in-days-label">Rental duration</mat-label>
+							<input matInput type="number" formControlName="durationInDays" class="form-control"
+								[ngClass]="{ 'is-invalid': submitted && item.controls.durationInDays.errors }" />
+						</mat-form-field>
+					</div>
+				</div>
+			</mat-card>
+		</div>
+		<button mat-raised-button (click)="rent()" class="rent-submit" [disabled]="orderForm.invalid">Rent</button>
+
+	</div>
+</ng-template>
