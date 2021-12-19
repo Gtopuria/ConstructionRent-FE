@@ -13,6 +13,9 @@ import { RouterState } from './route/state';
 import { routeReducer } from './route/route.reducer';
 import { RouteEffect } from './route/route.effect';
 import { DefaultRouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { OrderEffect } from './order/order.effect';
+import { AppOrderState } from './order/state';
+import { orderReducer } from './order/order.reducer';
 
 
 const APP_REDUCER_TOKEN = new InjectionToken<ActionReducerMap<AppState>>(
@@ -23,17 +26,24 @@ const EQUIPMENT_REDUCER: ActionReducerMap<AppEquipmentState> = {
 	equipment: equipmentReducer
 };
 
+const ORDER_REDUCER: ActionReducerMap<AppOrderState> = {
+	order: orderReducer
+};
+
 const ROUTING_REDUCER: ActionReducerMap<RouterState> = {
 	route: routeReducer
 };
 
 const APP_REDUCERS = {
 	...EQUIPMENT_REDUCER,
-	...ROUTING_REDUCER
+	...ROUTING_REDUCER,
+	...ORDER_REDUCER
+
 };
 
 const APP_EFFECTS = [
 	EquipmentsEffect,
+	OrderEffect,
 	RouteEffect
 ];
 

@@ -15,7 +15,7 @@ import { MainLayoutComponent } from './core/layout/main-layout/main-layout.compo
 		AppComponent,
 		EquipmentComponent,
 		MainLayoutComponent,
-		AppBoostrapComponent
+		AppBoostrapComponent,
 	],
 	imports: [
 		BrowserModule,

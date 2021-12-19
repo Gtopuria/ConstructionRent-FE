@@ -1,23 +1,26 @@
 <div class="main-layout-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Construction Rent</h1>
-    <button mat-raised-button color="accent" (click)="auth.logout({ returnTo: document.location.origin })">
-      Log out
-    </button>
-  </mat-toolbar>
+	<mat-toolbar color="primary" class="example-toolbar">
+		<button mat-icon-button (click)="snav.toggle()">
+			<mat-icon>menu</mat-icon>
+		</button>
+		<h1 class="example-app-name">Construction Rent</h1>
+		<button mat-button class="cart-button" [matBadge]="cartItemCount"
+			[matBadgeHidden]="cartItemCount === 0" matBadgePosition="after" matBadgeColor="accent">
+			<mat-icon>shopping_cart</mat-icon>
+		</button>
+	</mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-        <a mat-list-item routerLink="/equipment">Equipment</a>
+	<mat-sidenav-container class="example-sidenav-container">
+		<mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+			fixedTopGap="56">
+			<mat-nav-list>
+				<a mat-list-item routerLink="/equipment">Equipment</a>
+				<a mat-list-item routerLink="/cart">Cart</a>
+			</mat-nav-list>
+		</mat-sidenav>
 
-      </mat-nav-list>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+		<mat-sidenav-content>
+			<router-outlet></router-outlet>
+		</mat-sidenav-content>
+	</mat-sidenav-container>
 </div>

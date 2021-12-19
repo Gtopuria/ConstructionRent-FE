@@ -1,28 +1,32 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { tap } from 'rxjs/operators';
+import { OrderState } from 'src/app/store-sdk/order/order.model';
+import { selectCartItemsCount } from '../../../store-sdk/order/order.selector';
+import { ignoreNil } from 'src/app/store-sdk/utils/ngrx-util';
 
 @Component({
 	selector: 'app-main-panel-layout',
 	templateUrl: './main-layout.component.html',
 	styleUrls: ['./main-layout.component.scss']
 })
-export class MainLayoutComponent implements OnInit {
+export class MainLayoutComponent implements OnInit, OnDestroy {
 
 	mobileQuery: MediaQueryList;
-
-	fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
-
-	fillerContent = Array.from({ length: 50 }, () =>
-		`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-       laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-       voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`);
-
+	cartItemCount = 0;
+	cartItemCount$$ = this.store.pipe(
+		select(selectCartItemsCount),
+		ignoreNil(),
+		tap(count => {
+			this.cartItemCount = count;
+		})
+	).subscribe();
 	private _mobileQueryListener: () => void;
 
 	constructor(
+		private store: Store<OrderState>,
 		changeDetectorRef: ChangeDetectorRef,
 		media: MediaMatcher,
 		@Inject(DOCUMENT) public document: Document
@@ -34,8 +38,10 @@ export class MainLayoutComponent implements OnInit {
 
 	ngOnDestroy(): void {
 		this.mobileQuery.removeListener(this._mobileQueryListener);
+		if(this.cartItemCount$$) {
+			this.cartItemCount$$.unsubscribe();
+		}
 	}
-
 
 	ngOnInit(): void {
 	}

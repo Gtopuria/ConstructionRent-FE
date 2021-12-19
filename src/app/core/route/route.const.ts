@@ -1,3 +1,4 @@
 export const FEAUTRE_ROUTES = {
-	equipment: 'equipment'
+	equipment: 'equipment',
+	cart: 'cart'
 }
