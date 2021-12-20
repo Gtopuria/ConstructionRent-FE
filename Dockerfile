@@ -1,11 +1,23 @@
-### STAGE 1: Build ###
-FROM node:12.7-alpine AS build
-WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
+# Create image based on the official Node 10 image from dockerhub
+FROM node:10
+
+# Create a directory where our app will be placed
+RUN mkdir -p /app
+
+# Change directory so that our commands run inside this new directory
+WORKDIR /app
+
+# Copy dependency definitions
+COPY package*.json /app/
+
+# Install dependencies
 RUN npm install
-COPY . .
-RUN npm run build-prod
-### STAGE 2: Run ###
-FROM nginx:1.17.1-alpine
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist/ConstructionRent /usr/share/nginx/html
+
+# Get all the code needed to run the app
+COPY . /app/
+
+# Expose the port the app runs in
+EXPOSE 4200
+
+# Serve the app
+CMD ["npm", "start"]

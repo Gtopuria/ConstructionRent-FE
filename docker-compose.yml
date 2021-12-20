@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+    angular:
+        build: ./
+        ports:
+            - "4200:4200"
