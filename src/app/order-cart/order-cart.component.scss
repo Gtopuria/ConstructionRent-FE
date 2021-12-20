@@ -1,5 +1,5 @@
 mat-card {
-	margin:0 auto;
+	margin: 0 auto;
 }
 
 .wrapper {
@@ -8,10 +8,12 @@ mat-card {
 	display: flex;
 	flex-direction: column;
 	&-cart-item-card {
+		margin-top: 6px;
 		width: 100%;
 		&-inner-item {
-			>div {
-				padding:18px;
+			font-size: 10px;
+			> div {
+				padding: 18px;
 			}
 			display: flex;
 			flex-direction: column;

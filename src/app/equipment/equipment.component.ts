@@ -30,5 +30,4 @@ export class EquipmentComponent implements OnInit {
 	AddItemToCart(equipment: Equipment) {
 		this.store.dispatch(this.orderAction.AddToCart(equipment));
 	}
-
 }

@@ -19,14 +19,18 @@
 	}
 }
 
-.Heavy {
-	color: $primary-color;
+.equipment-name {
+	font-weight: bold;
 }
 
-.Regular {
-	color: $secondary-color;
+.mat-standard-chip {
+	margin: 0 !important;
+	font-size: 10px;
 }
 
-.Specialized {
-	color: $warn-color;
+.add-to-cart {
+	display: flex;
+	> span {
+		flex-grow: 1;
+	}
 }

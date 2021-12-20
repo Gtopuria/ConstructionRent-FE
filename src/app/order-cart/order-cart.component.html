@@ -8,10 +8,7 @@
 			<mat-card class="wrapper-cart-item-card">
 				<div class="wrapper-cart-item-card-inner">
 					<div [formGroup]="item" class="wrapper-cart-item-card-inner-item">
-						<div>
-							<label>Name</label>
-							<p>{{item.controls.name.value}}</p>
-						</div>
+						<mat-label>{{item.controls.name.value}}</mat-label>
 						<mat-form-field class="duration-in-days" appearance="outline">
 							<mat-label class="duration-in-days-label">Rental duration</mat-label>
 							<input matInput type="number" formControlName="durationInDays" class="form-control"
@@ -21,6 +18,7 @@
 				</div>
 			</mat-card>
 		</div>
-		<button mat-raised-button color="primary" (click)="rent()" class="rent-submit" [disabled]="orderForm.invalid">Rent</button>
+		<button mat-raised-button color="primary" (click)="rent()" class="rent-submit"
+			[disabled]="orderForm.invalid">Rent</button>
 	</div>
 </ng-template>
