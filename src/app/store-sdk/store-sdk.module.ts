@@ -9,9 +9,6 @@ import { equipmentReducer } from './equipment/equipment.reducer';
 import { AppEquipmentState } from './equipment/state';
 import { EquipmentsEffect } from './equipment/equipment.effect';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterState } from './route/state';
-import { routeReducer } from './route/route.reducer';
-import { RouteEffect } from './route/route.effect';
 import { DefaultRouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { OrderEffect } from './order/order.effect';
 import { AppOrderState } from './order/state';
@@ -30,13 +27,8 @@ const ORDER_REDUCER: ActionReducerMap<AppOrderState> = {
 	order: orderReducer
 };
 
-const ROUTING_REDUCER: ActionReducerMap<RouterState> = {
-	route: routeReducer
-};
-
 const APP_REDUCERS = {
 	...EQUIPMENT_REDUCER,
-	...ROUTING_REDUCER,
 	...ORDER_REDUCER
 
 };
@@ -44,7 +36,6 @@ const APP_REDUCERS = {
 const APP_EFFECTS = [
 	EquipmentsEffect,
 	OrderEffect,
-	RouteEffect
 ];
 
 export function logger(reducer: ActionReducer<AppState>): any {

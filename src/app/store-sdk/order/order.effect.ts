@@ -9,10 +9,8 @@ import { Equipment } from '../equipment/equipment.model';
 import { OrderService } from './order.service';
 import { OrderItem } from './order.model';
 import { MatSnackBar } from '@angular/material';
-import { RouteState } from '../route/route.model';
-import { Store } from '@ngrx/store';
-import { RouteAction } from '../route/route.action';
 import { FEATURE_ROUTES } from 'src/app/core/route/route.const';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class OrderEffect {
@@ -61,15 +59,12 @@ export class OrderEffect {
 		map(() => {
 			this._snackBar.open(
 				`Rent order has been placed`, '', { duration: 3000 });
-			return this.store.dispatch(
-				this.routeAction.navigate(FEATURE_ROUTES.orders)
-			);
+			this.router.navigate([FEATURE_ROUTES.orders])
 		})
 	), { dispatch: false });
 
 	constructor(private actions$: Actions,
-		private store: Store<RouteState>,
-		private routeAction: RouteAction,
+		private router: Router,
 		private service: OrderService,
 		private orderActions: OrderAction,
 		private _snackBar: MatSnackBar) {

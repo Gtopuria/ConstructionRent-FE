@@ -6,8 +6,8 @@ import { tap } from 'rxjs/operators';
 import { OrderState } from 'src/app/store-sdk/order/order.model';
 import { selectCartItemsCount } from '../../../store-sdk/order/order.selector';
 import { ignoreNil } from 'src/app/store-sdk/utils/ngrx-util';
-import { RouteAction } from 'src/app/store-sdk/route/route.action';
 import { FEATURE_ROUTES } from '../../route/route.const';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-main-panel-layout',
@@ -29,7 +29,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
 
 	constructor(
 		private store: Store<OrderState>,
-		private routeAction: RouteAction,
+		private router: Router,
 		changeDetectorRef: ChangeDetectorRef,
 		media: MediaMatcher,
 		@Inject(DOCUMENT) public document: Document
@@ -47,7 +47,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
 	}
 
 	redirectToCart() {
-		this.store.dispatch(this.routeAction.navigate(FEATURE_ROUTES.cart));
+		this.router.navigate([FEATURE_ROUTES.cart])
 	}
 
 	ngOnInit(): void {
