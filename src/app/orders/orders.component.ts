@@ -51,7 +51,7 @@ export class OrdersComponent implements OnInit, OnDestroy {
 				pdf.text(`Total Price: ${invoice.totalPrice}`, 10, 40);
 				pdf.text(`Loyalty points: ${invoice.loyaltyPoints}`, 10, 45);
 				autoTable(pdf, {
-					margin: { right: 0, left: 10 },
+					margin: { right: 10, left: 10 },
 					head: this.headRows(),
 					body: invoice.items as any[],
 					startY: 50,
@@ -59,6 +59,7 @@ export class OrdersComponent implements OnInit, OnDestroy {
 					bodyStyles: { valign: 'top' }
 				});
 				pdf.save(`${t}.pdf`);
+				this.store.dispatch(this.orderAction.ClearInvoice());
 			})
 		).subscribe();
 	}

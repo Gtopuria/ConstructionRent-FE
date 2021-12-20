@@ -17,6 +17,9 @@ mat-card {
 			}
 			display: flex;
 			flex-direction: column;
+			.duration-in-days {
+				margin-top: 12px;
+			}
 		}
 	}
 }
