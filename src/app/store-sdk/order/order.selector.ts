@@ -13,3 +13,13 @@ export const selectCartItems = createSelector(
 	orders,
 	(state: OrderState) => state.cart
 );
+
+export const selectOrders = createSelector(
+	orders,
+	(state: OrderState) => state.orders
+);
+
+export const selectInvoice = createSelector(
+	orders,
+	(state: OrderState) => state.invoice
+);

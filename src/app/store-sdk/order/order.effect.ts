@@ -8,11 +8,16 @@ import { of } from 'rxjs';
 import { Equipment } from '../equipment/equipment.model';
 import { OrderService } from './order.service';
 import { OrderItem } from './order.model';
+import { MatSnackBar } from '@angular/material';
+import { RouteState } from '../route/route.model';
+import { Store } from '@ngrx/store';
+import { RouteAction } from '../route/route.action';
+import { FEATURE_ROUTES } from 'src/app/core/route/route.const';
 
 @Injectable()
 export class OrderEffect {
 
-	getEquipments$ = createEffect(() => this.actions$.pipe(
+	addEquipmentToCart$ = createEffect(() => this.actions$.pipe(
 		ofType(ORDER_ACTION_TYPE.AddToCart),
 		map((action: ActionWithPayload<Equipment>) => action.payload),
 		map((payload) => this.orderActions.AddToCartSuccess(payload))
@@ -23,9 +28,9 @@ export class OrderEffect {
 		ofType(ORDER_ACTION_TYPE.PlaceRentOrder),
 		map((action: ActionWithPayload<OrderItem[]>) => action.payload),
 		switchMap((payload) =>
-			this.service.PlaceRentOrder(payload).pipe(
+			this.service.placeRentOrder(payload).pipe(
 				map((response) => {
-					if(response.status === 200) {
+					if (response.status === 200) {
 						return this.orderActions.PlaceRentOrderSuccess()
 					}
 				}),
@@ -34,8 +39,39 @@ export class OrderEffect {
 		)
 	));
 
+	getOrders$ = createEffect(() => this.actions$.pipe(
+		ofType(ORDER_ACTION_TYPE.GetOrders),
+		switchMap(() => this.service.getAll().pipe(
+			map((response) => this.orderActions.GetOrdersSuccess(response)),
+			catchError((error: AppError) => of(this.orderActions.GetOrdersFail(error)))
+		))
+	));
+
+	getInvoice$ = createEffect(() => this.actions$.pipe(
+		ofType(ORDER_ACTION_TYPE.GetInvoice),
+		map((action: ActionWithPayload<string>) => action.payload),
+		switchMap((payload) => this.service.getInvoice(payload).pipe(
+			map((response) => this.orderActions.GetInvoiceSuccess(response)),
+			catchError((error: AppError) => of(this.orderActions.GetInvoiceFail(error)))
+		))
+	));
+
+	placeOrderSuccess$ = createEffect(() => this.actions$.pipe(
+		ofType(ORDER_ACTION_TYPE.PlaceRentOrderSuccess),
+		map(() => {
+			this._snackBar.open(
+				`Rent order has been placed`, '', { duration: 3000 });
+			return this.store.dispatch(
+				this.routeAction.navigate(FEATURE_ROUTES.orders)
+			);
+		})
+	), { dispatch: false });
+
 	constructor(private actions$: Actions,
+		private store: Store<RouteState>,
+		private routeAction: RouteAction,
 		private service: OrderService,
-		private orderActions: OrderAction) {
+		private orderActions: OrderAction,
+		private _snackBar: MatSnackBar) {
 	}
 }

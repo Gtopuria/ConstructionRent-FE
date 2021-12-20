@@ -1,20 +1,14 @@
-mat-card {
-	margin:0 auto;
-}
-
 .wrapper {
-	padding: 18px;
+	padding: 12px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	&-cart-item-card {
+	&-order-item-card {
+		margin-top: 6px;
 		width: 100%;
 		&-inner-item {
-			>div {
-				padding:18px;
-			}
 			display: flex;
-			flex-direction: column;
+			flex-direction: row;
 		}
 	}
 }
@@ -26,8 +20,4 @@ mat-card {
 	.wrapper {
 		display: block;
 	}
-}
-
-.rent-submit {
-	width: 100%;
 }

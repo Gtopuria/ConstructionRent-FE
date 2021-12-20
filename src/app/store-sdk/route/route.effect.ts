@@ -53,11 +53,11 @@ export class RouteEffect {
 		mapTo(this.routeAction.navigationCancel())
 	);
 
-	@Effect({ dispatch: false}) replacePath$: Observable<string> = this.actions$.pipe(
-		ofType(ROUTE_ACTION_TYPE.replacePath),
-		map((action: ActionWithPayload<string>) => action.payload),
-		tap(payload => this.routeService.replacePath(payload))
-	);
+	// @Effect({ dispatch: false}) replacePath$: Observable<string> = this.actions$.pipe(
+	// 	ofType(ROUTE_ACTION_TYPE.replacePath),
+	// 	map((action: ActionWithPayload<string>) => action.payload),
+	// 	tap(payload => this.routeService.replacePath(payload))
+	// );
 
 	@Effect() navigationStart$: Observable<Action> = this.router.events.pipe(
 		filter(event => event instanceof NavigationStart),

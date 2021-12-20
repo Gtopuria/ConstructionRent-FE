@@ -4,13 +4,13 @@ import { environment } from 'src/environments/environment';
 import { Equipment } from './equipment.model';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class EquipmentService {
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-  GetAll() {
-    return this.http.get<Equipment[]>(`${environment.apiUrl}/equipment`);
-  }
+	getAll() {
+		return this.http.get<Equipment[]>(`${environment.apiUrl}/equipment`);
+	}
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
 import { Equipment } from '../store-sdk/equipment/equipment.model';

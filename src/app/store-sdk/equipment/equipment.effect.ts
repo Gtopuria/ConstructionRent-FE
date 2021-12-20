@@ -14,7 +14,7 @@ export class EquipmentsEffect {
 	getEquipments$ = createEffect(() => this.actions$.pipe(
 		ofType(EQUIPMENT_ACTION_TYPE.GetEquipments),
 		switchMap(() =>
-			this.service.GetAll().pipe(
+			this.service.getAll().pipe(
 				map(response => {
 					const mapped = response.map(equipemnt => {
 						equipemnt.type = EquipmentType[equipemnt.type];

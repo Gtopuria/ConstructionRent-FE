@@ -16,10 +16,7 @@ export class EquipmentComponent implements OnInit {
 
 	equipments$ = this.store.pipe(
 		select(selectEquipments),
-		ignoreNil(),
-		tap(res => {
-			console.log("🚀 ~ file: equipment.component.ts ~ line 25 ~ EquipmentComponent ~ ngOnInit ~ res", res)
-		})
+		ignoreNil()
 	);
 
 	constructor(private store: Store<EquipmentState>,

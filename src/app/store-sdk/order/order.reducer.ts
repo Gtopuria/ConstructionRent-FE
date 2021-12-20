@@ -4,7 +4,9 @@ import { OrderState } from './order.model';
 
 
 const INITIAL_STATE: OrderState = {
-	cart: []
+	cart: [],
+	orders: [],
+	invoice: undefined
 };
 
 export const orderReducer = (
@@ -16,6 +18,30 @@ export const orderReducer = (
 			return {
 				...state,
 				cart: [...state.cart, action.payload]
+			};
+		}
+		case ORDER_ACTION_TYPE.PlaceRentOrderSuccess: {
+			return {
+				...state,
+				cart: []
+			};
+		}
+		case ORDER_ACTION_TYPE.GetOrdersSuccess: {
+			return {
+				...state,
+				orders: action.payload
+			};
+		}
+		case ORDER_ACTION_TYPE.GetInvoiceSuccess: {
+			return {
+				...state,
+				invoice: action.payload
+			};
+		}
+		case ORDER_ACTION_TYPE.ClearInvoice: {
+			return {
+				...state,
+				invoice: undefined
 			};
 		}
 		default:

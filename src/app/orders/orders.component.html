@@ -1,0 +1,25 @@
+<ng-container *ngIf="orders$ | async as orders">
+
+	<div *ngIf="orders.length === 0; else ordersList">
+		<mat-card>No orders yet</mat-card>
+	</div>
+
+	<ng-template #ordersList>
+		<div class="wrapper">
+			<div *ngFor="let order of orders">
+				<mat-card class="wrapper-order-item-card">
+					<div class="wrapper-order-item-card-inner">
+						<p>
+							Order ID: {{order.id}}
+						</p>
+						<p>
+							Items Count {{order.items.length}}
+						</p>
+						<button mat-raised-button color="accent" (click)="getInvoice(order.id)">Invoice</button>
+					</div>
+				</mat-card>
+			</div>
+		</div>
+	</ng-template>
+
+</ng-container>

@@ -11,6 +11,7 @@ import { AppBoostrapComponent } from './app-boostrap/app-boostrap.component';
 import { MainLayoutComponent } from './core/layout/main-layout/main-layout.component';
 import { OrderCartComponent } from './order-cart/order-cart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
 	declarations: [
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 		AppBoostrapComponent,
 		OrderCartComponent,
 		MainLayoutComponent,
+		OrdersComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -2,11 +2,18 @@ import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store/src';
 import { Equipment } from '../equipment/equipment.model';
 import { ActionWithPayload, AppError } from '../utils/store-utils';
-import { OrderItem } from './order.model';
+import { Invoice, OrderItem } from './order.model';
 
 export const ACTION_PREFIX = '[Order]';
 export const ORDER_ACTION_TYPE = {
 	AddToCart: `${ACTION_PREFIX} Add to Cart`,
+	GetOrders: `${ACTION_PREFIX} Get Orders`,
+	GetInvoice: `${ACTION_PREFIX} Get Invoice`,
+	ClearInvoice: `${ACTION_PREFIX} Clear Invoice`,
+	GetInvoiceSuccess: `${ACTION_PREFIX} Get Invoice Success`,
+	GetInvoiceFail: `${ACTION_PREFIX} Get Invoice Fail`,
+	GetOrdersSuccess: `${ACTION_PREFIX} Get Orders Success`,
+	GetOrdersFail: `${ACTION_PREFIX} Get Orders Fail`,
 	PlaceRentOrder: `${ACTION_PREFIX} Place Rent Order`,
 	PlaceRentOrderSuccess: `${ACTION_PREFIX} Place Rent Order Success`,
 	PlaceRentOrderFail: `${ACTION_PREFIX} Place Rent Order Fail`,
@@ -23,6 +30,53 @@ export class OrderAction {
 		return {
 			type: ORDER_ACTION_TYPE.AddToCart,
 			payload: payload
+		};
+	}
+
+	GetOrders(): Action {
+		return {
+			type: ORDER_ACTION_TYPE.GetOrders
+		};
+	}
+
+	ClearInvoice(): Action {
+		return {
+			type: ORDER_ACTION_TYPE.ClearInvoice
+		};
+	}
+
+	GetInvoice(payload: string): ActionWithPayload {
+		return {
+			type: ORDER_ACTION_TYPE.GetInvoice,
+			payload
+		};
+	}
+
+	GetInvoiceSuccess(payload: Invoice): ActionWithPayload {
+		return {
+			type: ORDER_ACTION_TYPE.GetInvoiceSuccess,
+			payload
+		};
+	}
+
+	GetInvoiceFail(payload: AppError): ActionWithPayload {
+		return {
+			type: ORDER_ACTION_TYPE.GetInvoiceFail,
+			payload
+		};
+	}
+
+	GetOrdersSuccess(payload: any): ActionWithPayload {
+		return {
+			type: ORDER_ACTION_TYPE.GetOrdersSuccess,
+			payload
+		};
+	}
+
+	GetOrdersFail(payload: AppError): ActionWithPayload {
+		return {
+			type: ORDER_ACTION_TYPE.GetOrdersFail,
+			payload
 		};
 	}
 

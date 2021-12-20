@@ -1,4 +1,5 @@
-export const FEAUTRE_ROUTES = {
+export const FEATURE_ROUTES = {
 	equipment: 'equipment',
-	cart: 'cart'
+	cart: 'cart',
+	orders: 'orders'
 }
